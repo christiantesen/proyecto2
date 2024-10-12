@@ -1,0 +1,10 @@
+services:
+  - type: web
+    plan: free
+    name: proyecto_ia
+    runtime: python
+    buildCommand: "./build.sh"
+    startCommand: "python main.py"
+    envVars:
+      - key: WEB_CONCURRENCY
+        value: 4
