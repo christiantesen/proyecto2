@@ -318,28 +318,28 @@
             <div class="table-container" id="table-container">
                 <table class='table'>
                     <thead>
-                        <tr>
-                            {% for item in columns %}
-                            <th>{{ item }}</th>
-                            {% endfor %}
-                        </tr>
+                       <tr>
+                          {% for item in columns %}
+                          <th>{{ item }}</th>
+                          {% endfor %}
+                       </tr>
                     </thead>
                     <tbody>
-                        {% for item in registros %}
-                        <tr>
-                            <td>{{ item.DOMINIO }}</td>
-                            <td>{{ item.TIPO_DE_VIVIENDA }}</td>
-                            <td>{{ item.MATERIAL_PARED_EXTERIOR }}</td>
-                            <td>{{ item.MATERIAL_PISO }}</td>
-                            <td>{{ item.MATERIAL_TECHO }}</td>
-                            <td>{{ item.PAGO_SERVICIO_AGUA }}</td>
-                            <td>{{ item.ELECTRICO_EXCLUSIVO_COLECTIVO }}</td>
-                            <td>{{ item.AGUA_SEMANA }}</td>
-                        </tr>
-                        {% endfor %}
+                       {% for item in registros %}
+                       <tr>
+                          <td>{{ item.DOMINIO }}</td>
+                          <td>{{ item.TIPO_DE_VIVIENDA }}</td>
+                          <td>{{ item.MATERIAL_PARED_EXTERIOR }}</td>
+                          <td>{{ item.MATERIAL_PISO }}</td>
+                          <td>{{ item.MATERIAL_TECHO }}</td>
+                          <td>{{ item.PAGO_SERVICIO_AGUA }}</td>
+                          <td>{{ item.ELECTRICO_EXCLUSIVO_COLECTIVO }}</td>
+                          <td>{{ item.AGUA_SEMANA }}</td>
+                       </tr>
+                       {% endfor %}
                     </tbody>
-                    
-                </table>
+                 </table>
+                 
             </div>
 
             <!-- Columnas de tablas pequeñas a la derecha -->

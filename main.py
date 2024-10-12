@@ -17,7 +17,7 @@ def generar_tabla_html(df):
 @app.get('/')
 def home():
     # Ruta del archivo CSV que quieres leer
-    ruta_archivo = 'C:/Users/VIVIANA TORRES/OneDrive/Escritorio/Viviana/urp/ciclo7/IA/proyecto2/Enaho01-2020-100.csv'
+    ruta_archivo = 'Enaho01-2020-100.csv'
     df = leer_datos_csv(ruta_archivo)  # Leer los datos desde el archivo CSV
 
     # Generar la tabla HTML a partir de los datos
