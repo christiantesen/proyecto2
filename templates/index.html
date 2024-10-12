@@ -9,7 +9,7 @@
         }
 
         .container {
-            width: 100%;
+            width: 90%;
             margin: auto;
             padding: 20px;
             background-color: #ffffff;
@@ -17,8 +17,16 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
+        .flex-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
         .table-container {
-            overflow-x: auto; /* Habilita scroll horizontal si es necesario */
+            overflow-x: auto;
+            flex-grow: 2;
+            position: relative;
         }
 
         .table {
@@ -60,52 +68,421 @@
         p {
             text-align: center;
         }
+
+        .tablas-pequenas-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            flex-grow: 1;
+        }
+
+        .tabla-pequena {
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .tabla-pequena .table {
+            width: 100%;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background-color: #6D9EEB;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 0 10px;
+        }
+
+        .btn:hover {
+            background-color: #5A85C2;
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <h1>Datos de la Encuesta Nacional de Hogares (ENAHO) 2022 </h1>
+        <h1>Datos de la Encuesta Nacional de Hogares (ENAHO) 2022</h1>
         <p>La tabla a continuación se generó a partir de los datos de un archivo CSV.</p>
-        <div class="table-container">
-            <table class='table'>
-                <thead>
-                    <tr>
-                        {% for item in columns %}
-                        <th>{{ item }}</th>
+
+        <!-- Botones de desplazamiento para la tabla principal -->
+        <div class="btn-container">
+            <button class="btn" onclick="scrollTable('left')">Izquierda</button>
+            <button class="btn" onclick="scrollTable('right')">Derecha</button>
+        </div>
+
+        <!-- Contenedor flexible para organizar la tabla principal y las tablas pequeñas -->
+        <div class="flex-container">
+            <!-- Columnas de tablas pequeñas a la izquierda -->
+            <div class="tablas-pequenas-container">
+                <!-- Tabla pequeña 1 -->
+                <div class="tabla-pequena">
+                    <h3>Tipo de vivienda</h3>
+                    <table class='table'>
+                        <thead>
+                            <tr>
+                                <th>TIPO_DE_VIVIENDA</th>
+                                <th>Valor</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Casa Independiente</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>Departamento en edificio</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td>Vivienda en quinta</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td>Vivienda en casa de vecindad</td>
+                                <td>4</td>
+                            </tr>
+                            <tr>
+                                <td>Choza o cabaña</td>
+                                <td>5</td>
+                            </tr>
+                            <tr>
+                                <td>Vivienda improvisada</td>
+                                <td>6</td>
+                            </tr>
+                            <tr>
+                                <td>Local no destinada para habitación humana</td>
+                                <td>7</td>
+                            </tr>
+                            <tr>
+                                <td>Otro</td>
+                                <td>8w</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Tabla pequeña 2 -->
+                <div class="tabla-pequena">
+                    <h3>El material predominante en las paredes exteriores es ?</h3>
+                    <table class='table'>
+                        <thead>
+                            <tr>
+                                <th>MATERIAL_PARED_EXTERIOR</th>
+                                <th>Valor</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Ladrillo o bloque de cemento</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>Piedra o sillar con cal o cemento</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td>Adobe</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td>Tapia</td>
+                                <td>4</td>
+                            </tr>
+                            <tr>
+                                <td>Quincha</td>
+                                <td>5</td>
+                            </tr>
+                            <tr>
+                                <td>Piedra con barro</td>
+                                <td>6</td>
+                            </tr>
+                            <tr>
+                                <td>Madera</td>
+                                <td>7</td>
+                            </tr>
+                            <tr>
+                                <td>Triplay/calamina/estera</td>
+                                <td>8</td>
+                            </tr>
+                            <tr>
+                                <td>Otro material</td>
+                                <td>9</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Tabla pequeña 3 -->
+                <div class="tabla-pequena">
+                    <h3>¿ El material predominante en los pisos es ?</h3>
+                    <table class='table'>
+                        <thead>
+                            <tr>
+                                <th>Categoría</th>
+                                <th>Valor</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Parquet o madera pulida</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>Láminas asfálticas, vinílicos o similares</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td>Losetas, terrazos o similares</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td>Madera</td>
+                                <td>4</td>
+                            </tr>
+                            <tr>
+                                <td>Cemento</td>
+                                <td>5</td>
+                            </tr>
+                            <tr>
+                                <td>Tierra</td>
+                                <td>6</td>
+                            </tr>
+                            <tr>
+                                <td>Otro material</td>
+                                <td>7</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Tabla pequeña 4 -->
+                <div class="tabla-pequena">
+                    <h3>¿ El material predominante en los techos es ?</h3>
+                    <table class='table'>
+                        <thead>
+                            <tr>
+                                <th>MATERIAL_TECHO</th>
+                                <th>Valor</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Concreto armado</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>Madera</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td>Tejas</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td>Planchas de calamina, fibra de cemento o similares</td>
+                                <td>4</td>
+                            </tr>
+                            <tr>
+                                <td>Caña o estera con torta de barro o cemento</td>
+                                <td>5</td>
+                            </tr>
+                            <tr>
+                                <td>Triplay/estera/carrizo</td>
+                                <td>6</td>
+                            </tr>
+                            <tr>
+                                <td>Paja, hojas de palmera</td>
+                                <td>7</td>
+                            </tr>
+                            <tr>
+                                <td>Otro material</td>
+                                <td>8</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Tabla principal -->
+            <div class="table-container" id="table-container">
+                <table class='table'>
+                    <thead>
+                        <tr>
+                            {% for item in columns %}
+                            <th>{{ item }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in registros %}
+                        <tr>
+                            <td>{{item.DOMINIO}}</td>
+                            <td>{{item.TIPO_DE_VIVIENDA}}</td>
+                            <td>{{item.MATERIAL_PARED_EXTERIOR}}</td>
+                            <td>{{item.MATERIAL_PISO}}</td>
+                            <td>{{item.MATERIAL_TECHO}}</td>
+                            <td>{{item.PAGO_SERVICIO_AGUA}}</td>
+                            <td>{{item.ELECTRICO_EXCLUSIVO_COLECTIVO}}</td>
+                            <td>{{item.AGUA_SEMANA}}</td>
+                        </tr>
                         {% endfor %}
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for item in registros %}
-                    <tr>
-                        <td>
-                        {{item.TIPO_DE_VIVIENDA}}
-                        </td>
-                        <td>
-                        {{item.MATERIAL_PARED_EXTERIOR}}
-                        </td>
-                        <td>
-                        {{item.MATERIAL_PISO}}
-                        </td>
-                        <td>
-                        {{item.MATERIAL_TECHO}}
-                        </td>
-                        <td>
-                        {{item.PAGO_SERVICIO_AGUA}}
-                        </td>
-                        <td>
-                        {{item.ELECTRICO_EXCLUSIVO_COLECTIVO}}
-                        </td>
-                        <td>
-                        {{item.AGUA_SEMANA}}
-                        </td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Columnas de tablas pequeñas a la derecha -->
+            <div class="tablas-pequenas-container">
+                <!-- Tabla pequeña 5 -->
+                <div class="tabla-pequena">
+                    <h3>¿P110F: Pagan por el servicio de agua?</h3>
+                    <table class='table'>
+                        <thead>
+                            <tr>
+                                <th>Opción</th>
+                                <th>Valor</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Sí</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>No</td>
+                                <td>2</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Tabla pequeña 6 -->
+                <div class="tabla-pequena">
+                    <h3>P112A: ¿El servicio eléctrico de su hogar es?</h3>
+                    <table class='table'>
+                        <thead>
+                            <tr>
+                                <th>Opción</th>
+                                <th>Valor</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Con medidor de uso exclusivo para la vivienda</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>Con medidor de uso colectivo (para varias viviendas)</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td>Otro</td>
+                                <td>3</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Tabla pequeña 7 -->
+                <div class="tabla-pequena">
+                    <h3>P110C: ¿El hogar tiene acceso al servicio de agua todos los días de la semana?</h3>
+                    <table class='table'>
+                        <thead>
+                            <tr>
+                                <th>Opción</th>
+                                <th>Valor</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Sí</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>No</td>
+                                <td>2</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Tabla pequeña 8 -->
+                <div class="tabla-pequena">
+                    <h3>DOMINIO - Dominio Geográfico</h3>
+                    <table class='table'>
+                        <thead>
+                            <tr>
+                                <th>Región</th>
+                                <th>Valor</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Costa Norte</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>Costa Centro</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td>Costa Sur</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td>Sierra Norte</td>
+                                <td>4</td>
+                            </tr>
+                            <tr>
+                                <td>Sierra Centro</td>
+                                <td>5</td>
+                            </tr>
+                            <tr>
+                                <td>Sierra Sur</td>
+                                <td>6</td>
+                            </tr>
+                            <tr>
+                                <td>Selva</td>
+                                <td>7</td>
+                            </tr>
+                            <tr>
+                                <td>Lima Metropolitana</td>
+                                <td>8</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
+
+    <script>
+        function scrollTable(direction) {
+            var container = document.getElementById('table-container');
+            if (direction === 'left') {
+                container.scrollBy({
+                    top: 0,
+                    left: -100, // Ajusta la cantidad de desplazamiento
+                    behavior: 'smooth'
+                });
+            } else if (direction === 'right') {
+                container.scrollBy({
+                    top: 0,
+                    left: 100, // Ajusta la cantidad de desplazamiento
+                    behavior: 'smooth'
+                });
+            }
+        }
+    </script>
 </body>
 
 </html>
