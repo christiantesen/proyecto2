@@ -4,7 +4,7 @@ from limpieza import leer_datos_csv
 
 # Inicializar la aplicación
 app = FastHTML()
-env = Environment(loader=FileSystemLoader('templates'))
+env = Environment(loader=FileSystemLoader('.'))
 # Función para convertir el DataFrame a HTML
 def generar_tabla_html(df):
     filas = ""
