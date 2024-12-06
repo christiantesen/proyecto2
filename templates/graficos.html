@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráficos - ENAHO</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
+    <style>
+        body {
+            background-color: #F5F5F5;
+        }
+        /* Estilos de la barra de menú */
+        .navbar {
+            background-color: #6D9EEB;
+            padding: 10px;
+        }
+
+        .navbar a {
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .navbar a:hover {
+            background-color: #5A85C2;
+            border-radius: 5px;
+        }
+
+        .container {
+            width: 90%;
+            margin: auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .flex-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            flex-grow: 2;
+            position: relative;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 18px;
+            text-align: left;
+        }
+
+        .table th,
+        .table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+
+        .table th {
+            background-color: #6D9EEB;
+            color: white;
+        }
+
+        .table tr:nth-child(even) {
+            background-color: #f5cc6d;
+        }
+
+        .table tr:nth-child(odd) {
+            background-color: #f5cc6d;
+        }
+
+        .table tr:hover {
+            background-color: #e8efe5;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        .tablas-pequenas-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            flex-grow: 1;
+        }
+
+        .tabla-pequena {
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .tabla-pequena .table {
+            width: 100%;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+            margin-left: 150px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background-color: #6D9EEB;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 0 10px;
+        }
+
+        .btn:hover {
+            background-color: #5A85C2;
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <div class="navbar">
+        <div class="logo">
+           <a href="#">Mi Página ENAHO</a>
+   </div>
+   <div class="menu">
+       <a href="#inicio">Inicio</a>
+       <a href="/graficos">Graficos</a>
+       <a href="#acerca">Acerca de</a>
+       <a href="#contacto">Contacto</a>
+   </div>
+
+    <div class="container">
+        <h1>Gráficos de ENAHO</h1>
+        <p>A continuación se muestra el gráfico de acceso continuo al agua potable:</p>
+        <img src="{{ url_for('static', filename='images/agua_prediccion.png') }}" alt="Gráfico de Acceso Continuo al Agua Potable">
+
+        <img src="{{ url_for('static', filename='images/LOGO_PALADINS.png') }}" alt="Gráfico de Acceso Continuo al Agua Potable">
+    </div>
+</body>
+</html>
